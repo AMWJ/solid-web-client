@@ -306,6 +306,9 @@ SolidWebClient.prototype.solidRequest =
       for (var header in options.headers) {  // Add in optional headers
         http.setRequestHeader(header, options.headers[header])
       }
+	  if (options.sharedWith) {
+		http.setRequestHeader('Shared-With', options.sharedWith.join(' '));
+	  }
       if (options.timeout) {
         http.timeout = options.timeout
       }
